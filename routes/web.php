@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\TesteCreateController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,5 @@ Route::get('/teste-create', function () {
 
 
 Route::post('/test-post-create', [TesteCreateController::class, 'store']);
+
+Route::get('/cart', [CartController::class, 'index']);
