@@ -11,4 +11,21 @@ class Animal extends Model
     use HasFactory, Notifiable;
 
     public $timestamps = false;
+
+    public function getAllAnimals()
+    {
+        // = all é uma metodo estatico por isso da certo usar o self
+        return self::all();
+
+
+        //= Faz duas consultas uma traz os animais e outra traz os users relacionados
+        // return self::with('user')->get();
+    }
+
+
+    public function user()
+    {
+        // = belongTo nao é estatica e nao daria certo usar com self
+        return  $this->belongsTo(User::class);
+    }
 }

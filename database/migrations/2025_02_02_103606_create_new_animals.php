@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-
         Schema::create('animals', function (Blueprint $table) {
-
             $table->id();
             $table->string('raca');
             $table->string('cor');
             $table->integer('tamanho');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
